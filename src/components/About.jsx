@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section className="w-full min-h-screen px-6 md:px-12 py-24 border-t border-gray-800 flex flex-col justify-center">
+    <section id="about" className="w-full min-h-screen px-6 md:px-12 py-24 border-t border-gray-800 flex flex-col justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
         
         {/* Left Column: Bio */}

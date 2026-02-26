@@ -23,7 +23,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="w-full min-h-screen px-6 md:px-12 py-24 border-t border-gray-800">
+    <section id="projects" className="w-full min-h-screen px-6 md:px-12 py-24 border-t border-gray-800">
       <div className="mb-16">
         <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4">
           Selected Works
