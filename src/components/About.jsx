@@ -13,7 +13,7 @@ const About = () => {
           <div className="text-gray-400 text-lg md:text-xl leading-relaxed space-y-6">
             <p>
               I am a Software Engineer specializing in <span className="text-white font-bold">Java Backend Development</span> and scalable architecture. 
-              Currently completing my B.Tech in Artificial Intelligence at J.D. College of Engineering, graduating in 2025.
+              I am a 2025 B.Tech graduate in Artificial Intelligence from J.D. College of Engineering.
             </p>
             <p>
               My core focus is on building clean, maintainable systems. I thrive on solving complex algorithmic challenges, heavily practicing Data Structures & Algorithms with over 150+ LeetCode problems solved.
@@ -52,7 +52,7 @@ const About = () => {
             <ul className="space-y-4 text-gray-400 font-mono text-xs uppercase tracking-widest">
               <li className="flex justify-between border-b border-gray-800 pb-2 hover:text-white transition-colors duration-300 cursor-default">
                 <span>B.Tech Artificial Intelligence</span>
-                <span className="text-white">2022 - 2025</span>
+                <span className="text-white">Class of 2025</span>
               </li>
               <li className="flex justify-between border-b border-gray-800 pb-2 hover:text-white transition-colors duration-300 cursor-default">
                 <span>LeetCode</span>

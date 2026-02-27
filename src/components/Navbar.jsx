@@ -17,6 +17,9 @@ const Navbar = () => {
           <a href="#projects" className="hover:text-white cursor-pointer transition-colors duration-300">Projects</a>
         </li>
         <li>
+          <a href="#experience" className="hover:text-white cursor-pointer transition-colors duration-300">Experience</a>
+        </li>
+        <li>
           <a href="#about" className="hover:text-white cursor-pointer transition-colors duration-300">About</a>
         </li>
         <li>
