@@ -27,7 +27,9 @@ src/
 │   ├── CaseStudy       # Deep dive into "Legal Hub" (Genkit AI + Next.js)
 │   └── CodingHeatmaps  # Visual proof of 150+ DSA solves
 └── App.jsx             # Main assembly and logical narrative flow
-📈 Featured Logic Proofs
+```
+
+##📈 Featured Logic Proofs
 This portfolio serves as a live dashboard for my verified engineering achievements:
 
 150+ DSA Problems Solved: Verified activity on LeetCode and CodeChef.
@@ -36,7 +38,7 @@ Java Full Stack Specialist: Completed intensive training at VibrantMinds Technol
 
 AI Search Engine Implementation: Legal Hub project utilizing Genkit AI with 95% retrieval accuracy.
 
-⚙️ Local Development
+##⚙️ Local Development
 To run this project locally and explore the architecture:
 
 Clone the Repo:
