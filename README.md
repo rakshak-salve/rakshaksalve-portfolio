@@ -1,16 +1,62 @@
-# React + Vite
+💻 Rakshak Salve | Engineering Portfolio 2026
+High-Performance Brutalist Showcase built with React 19 & Vite
+This repository houses my professional portfolio, designed to showcase my journey as a 2025 B.Tech AI Graduate and Java Backend Engineer. It is built with a focus on performance, modularity, and a stark "Brutalist" aesthetic that mirrors my philosophy of transparent and efficient logic.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Key Architectural Features
+Lazy Loading & Suspense: Implemented code-splitting for heavy components (Heatmaps/Stats) to ensure initial load times under 1.5s.
 
-Currently, two official plugins are available:
+Custom Hooks: Developed useDecodeText to provide high-end, interactive UI elements without sacrificing performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dynamic Logic Sync: Real-time integration with LeetCode and GitHub APIs to display live coding heatmaps and contribution grids.
 
-## React Compiler
+Responsive Brutalism: A mobile-first, high-contrast design system built using Tailwind CSS for consistent performance across all devices.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠️ Tech Stack & Dependencies
+Framework: React 19 (Latest)
 
-## Expanding the ESLint configuration
+Build Tool: Vite v7.3.1 (Optimized for speed)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Styling: Tailwind CSS (Utility-first architecture)
+
+Visual Proof: github-calendar and custom SVG API integrations for LeetCode performance metrics.
+
+🏗️ Project Structure
+Bash
+src/
+├── assets/             # Optimized media and branding assets
+├── components/         # Modular, reusable UI components
+│   ├── LogicSandbox    # Showcase for Java/Spring Boot code snippets
+│   ├── CaseStudy       # Deep dive into "Legal Hub" (Genkit AI + Next.js)
+│   └── CodingHeatmaps  # Visual proof of 150+ DSA solves
+├── hooks/              # Custom logic (useDecodeText, etc.)
+└── App.jsx             # Main assembly and logical narrative flow
+📈 Featured Logic Proofs
+This portfolio serves as a live dashboard for my verified engineering achievements:
+
+150+ DSA Problems Solved (LeetCode / CodeChef).
+
+Java Full Stack Specialist (VibrantMinds Technologies).
+
+AI Search Engine Implementation (Legal Hub - 95% Accuracy).
+
+⚙️ Local Development
+To run this project locally and explore the architecture:
+
+Clone the Repo:
+
+Bash
+git clone https://github.com/rakshak-salve/rakshaksalve-portfolio.git
+Install Dependencies:
+
+Bash
+npm install
+Run Dev Server:
+
+Bash
+npm run dev
+📫 Connection & Hiring
+Email: rakshaksalve0@gmail.com
+
+Location: Pune / Hyderabad / Remote
+
+Goal: Seeking Software Development Roles in AI-driven or Backend-heavy environments.
