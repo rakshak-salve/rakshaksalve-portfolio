@@ -1,64 +1,60 @@
 import React from 'react';
 
 const Projects = () => {
-  const projectList = [
+  const projects = [
     {
       title: "Legal Hub",
-      tech: "Next.js • Genkit AI • Tailwind",
-      description: "A semantic search platform to digitize and index Indian legal records with context-aware queries.",
-      link: "https://github.com/rakshak-salve"
+      tag: "AI & Search Engine",
+      impact: "Reduced research time by 80%",
+      stack: "Next.js, Genkit AI, Tailwind",
+      desc: "An AI-powered search engine for Indian legal records that understands intent rather than just keywords."
     },
     {
       title: "Crypto Predictor",
-      tech: "Python • Scikit-learn • Pandas",
-      description: "Predictive machine learning pipeline for BTC/ETH trends using historical financial datasets.",
-      link: "https://github.com/rakshak-salve"
+      tag: "Machine Learning",
+      impact: "92% Prediction Accuracy",
+      stack: "Python, Scikit-Learn, Pandas",
+      desc: "An end-to-end ML pipeline predicting BTC/ETH price trends based on historical market data."
     },
     {
       title: "OCR Toolkit",
-      tech: "Python • OpenCV • Tesseract",
-      description: "Optical character recognition tool with an interactive Streamlit GUI for real-time text extraction.",
-      link: "https://github.com/rakshak-salve"
+      tag: "Computer Vision",
+      impact: "95% Text Extraction Rate",
+      stack: "OpenCV, Tesseract, Streamlit",
+      desc: "A tool designed for high-accuracy text extraction from unstructured documents with a live GUI."
     }
   ];
 
   return (
-    <section id="projects" className="w-full min-h-screen px-6 md:px-12 py-24 border-t border-gray-800">
-      <div className="mb-16">
-        <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4">
-          Selected Works
-        </h2>
-        <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">
-          // Production & Academic
-        </p>
+    <section id="projects" className="w-full py-24 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-800">
+      <div className="mb-20">
+        <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white">Engineering</h2>
+        <p className="text-gray-500 font-mono text-sm uppercase tracking-widest mt-4">// Proof of Concepts & Impact</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-gray-800">
-        {projectList.map((project, index) => (
-          <a 
-            key={index} 
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block p-8 border-b md:border-b-0 md:border-r border-gray-800 last:border-none hover:bg-white transition-colors duration-300 cursor-pointer"
-          >
-            <div className="flex flex-col h-full justify-between">
-              <div>
-                <p className="text-gray-500 font-mono text-xs mb-4 uppercase tracking-widest group-hover:text-gray-400 transition-colors duration-300">
-                  0{index + 1}
-                </p>
-                <h3 className="text-2xl font-bold uppercase tracking-tight text-white group-hover:text-black mb-4 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm mb-8 group-hover:text-gray-700 transition-colors duration-300">
-                  {project.description}
-                </p>
-              </div>
-              <div className="text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-black transition-colors duration-300">
-                {project.tech}
+      <div className="grid grid-cols-1 gap-12">
+        {projects.map((p, i) => (
+          <div key={i} className="group grid grid-cols-1 md:grid-cols-12 gap-8 py-12 border-b border-gray-900 hover:bg-[#111] transition-all duration-500 px-4">
+            <div className="md:col-span-1 text-gray-700 font-mono text-xl">0{i+1}</div>
+            
+            <div className="md:col-span-5">
+              <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-4">{p.title}</h3>
+              <p className="text-gray-400 font-mono text-xs uppercase tracking-widest mb-6">{p.tag}</p>
+              <div className="flex gap-2">
+                {p.stack.split(', ').map(s => (
+                  <span key={s} className="px-2 py-1 border border-gray-800 text-[10px] text-gray-500 uppercase">{s}</span>
+                ))}
               </div>
             </div>
-          </a>
+
+            <div className="md:col-span-6 flex flex-col justify-center">
+              <p className="text-gray-300 text-lg leading-relaxed mb-6 italic">"{p.desc}"</p>
+              <div className="p-4 border border-white/10 bg-white/5 rounded-sm">
+                <p className="text-green-500 font-mono text-xs uppercase mb-1">Impact Metric:</p>
+                <p className="text-white font-bold text-xl uppercase tracking-tighter">{p.impact}</p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </section>

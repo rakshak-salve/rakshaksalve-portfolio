@@ -1,53 +1,46 @@
 import React from 'react';
-import { useDecodeText } from '../hooks/useDecodeText';
-import resumeFile from '../assets/Rakshak_Salve_Resume.pdf'; // Ensure this matches your filename
+import { useDecodeText } from '../hooks/useDecodeText'; // Correct path to hooks folder
 
 const Hero = () => {
-  const decodedTitle = useDecodeText("Software Engineer", 30);
-  const decodedSub = useDecodeText("Backend • Java • Full-Stack", 40);
+  const name = useDecodeText("RAKSHAK SALVE");
+  const role = useDecodeText("SOFTWARE ENGINEER", 50);
 
   return (
-    <section className="h-screen w-full flex flex-col justify-center items-start px-6 md:px-12 relative">
-      {/* Decorative Grid Lines */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
-        <div className="w-full h-[1px] bg-gray-500 absolute top-1/3"></div>
-        <div className="w-full h-[1px] bg-gray-500 absolute top-2/3"></div>
-        <div className="h-full w-[1px] bg-gray-500 absolute left-1/3 md:left-1/4"></div>
+    <section className="relative w-full min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20 overflow-hidden">
+      {/* Background Decorative Text */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] select-none leading-none pointer-events-none">
+        JAVA / AI
       </div>
 
-      <div className="z-10 mt-20 md:mt-0">
-        <p className="text-gray-400 font-mono text-xs md:text-sm mb-4 tracking-widest uppercase">
-          // 2025 B.Tech Graduate
+      <div className="relative z-10">
+        <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 flex items-center gap-4">
+          <span className="w-12 h-[1px] bg-gray-800"></span>
+          2025 B.Tech Graduate in AI
         </p>
-        
-        <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4 text-white">
-          Rakshak <br className="hidden md:block" /> Salve
+
+        <h1 className="text-[18vw] md:text-[12vw] font-black uppercase tracking-tighter leading-[0.85] text-white">
+          {name}
         </h1>
         
-        <h2 className="text-xl md:text-3xl font-bold text-gray-300 uppercase tracking-widest mb-6 font-mono min-h-[40px]">
-          {decodedTitle}
-        </h2>
-        
-        <p className="text-sm md:text-md text-gray-500 uppercase tracking-widest font-mono mb-10 min-h-[24px]">
-          {decodedSub}
-        </p>
-
-        {/* Primary Action: Resume Download */}
-        <a 
-          href={resumeFile}
-          download="Rakshak_Salve_Resume.pdf"
-          className="inline-block px-8 py-4 border border-white text-white font-mono text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500 group"
-        >
-          <span className="flex items-center gap-3">
-            Download CV
-            <span className="group-hover:translate-y-1 transition-transform duration-300">↓</span>
-          </span>
-        </a>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mt-4">
+          <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white">
+            {role}
+          </h2>
+          
+          <div className="flex flex-col items-start md:items-end">
+            <p className="font-mono text-[10px] uppercase text-gray-500 tracking-widest mb-2">Based in Pune, India</p>
+            <div className="flex gap-4">
+               <a href="#projects" className="px-6 py-2 border border-white text-white text-[10px] uppercase font-bold hover:bg-white hover:text-black transition-all">View Projects [03]</a>
+               <a href="/resume.pdf" className="px-6 py-2 bg-white text-black text-[10px] uppercase font-bold hover:bg-gray-200 transition-all">Download CV ↓</a>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-500">
-        <div className="w-8 h-[1px] bg-gray-500"></div>
-        <span>Scroll</span>
+      {/* Vertical Indicator */}
+      <div className="absolute left-6 md:left-12 bottom-12 flex items-center gap-4 origin-left -rotate-90">
+        <span className="w-8 h-[1px] bg-white animate-pulse"></span>
+        <p className="font-mono text-[10px] uppercase tracking-widest text-white">Scroll to Explore</p>
       </div>
     </section>
   );

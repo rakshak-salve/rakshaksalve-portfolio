@@ -2,11 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-color: #0a0a0a;
+  --grid-color: rgba(255, 255, 255, 0.03);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0a0a0a;
+  background-color: var(--bg-color);
   color: #ededed;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 1. The Grain/Noise Overlay */
+body::before {
+  content: "";
+  fixed: top 0 left 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  /* Using a subtle noise pattern */
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* 2. The Structural Background Grid */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 100px 100px; /* Large grid size for brutalist feel */
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Selection color */
+::selection {
+  background-color: #fff;
+  color: #000;
+}
+/* Custom Heatmap Colors */
+.react-calendar-heatmap .color-empty { fill: #161b22; }
+.react-calendar-heatmap .color-scale-1 { fill: #0e4429; }
+.react-calendar-heatmap .color-scale-2 { fill: #006d32; }
+.react-calendar-heatmap .color-scale-3 { fill: #26a641; }
+
+/* CodeChef Specific brown/gold theme */
+.react-calendar-heatmap .color-scale-chef { fill: #5b4638; }
+
+.heatmap-container svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.react-calendar-heatmap rect {
+  rx: 2px; /* Rounded corners for squares */
+  ry: 2px;
+}
+@keyframes loading-bar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-loading-bar {
+  animation: loading-bar 1.5s infinite ease-in-out;
+}
+.stroke-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
 }
