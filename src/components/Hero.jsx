@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDecodeText } from '../hooks/useDecodeText';
+import resumeFile from '../assets/Rakshak_Salve_Resume.pdf'; // Ensure this matches your filename
 
 const Hero = () => {
-  // Apply our custom hook to your job title and skills
   const decodedTitle = useDecodeText("Software Engineer", 30);
   const decodedSub = useDecodeText("Backend • Java • Full-Stack", 40);
 
   return (
     <section className="h-screen w-full flex flex-col justify-center items-start px-6 md:px-12 relative">
-      {/* Decorative Grid Lines (Brutalist style) */}
+      {/* Decorative Grid Lines */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
         <div className="w-full h-[1px] bg-gray-500 absolute top-1/3"></div>
         <div className="w-full h-[1px] bg-gray-500 absolute top-2/3"></div>
@@ -24,16 +24,27 @@ const Hero = () => {
           Rakshak <br className="hidden md:block" /> Salve
         </h1>
         
-        <h2 className="text-xl md:text-3xl font-bold text-gray-300 uppercase tracking-widest mb-2 font-mono min-h-[40px]">
+        <h2 className="text-xl md:text-3xl font-bold text-gray-300 uppercase tracking-widest mb-6 font-mono min-h-[40px]">
           {decodedTitle}
         </h2>
         
-        <p className="text-sm md:text-md text-gray-500 uppercase tracking-widest font-mono min-h-[24px]">
+        <p className="text-sm md:text-md text-gray-500 uppercase tracking-widest font-mono mb-10 min-h-[24px]">
           {decodedSub}
         </p>
+
+        {/* Primary Action: Resume Download */}
+        <a 
+          href={resumeFile}
+          download="Rakshak_Salve_Resume.pdf"
+          className="inline-block px-8 py-4 border border-white text-white font-mono text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500 group"
+        >
+          <span className="flex items-center gap-3">
+            Download CV
+            <span className="group-hover:translate-y-1 transition-transform duration-300">↓</span>
+          </span>
+        </a>
       </div>
 
-      {/* Scroll Down Indicator */}
       <div className="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-500">
         <div className="w-8 h-[1px] bg-gray-500"></div>
         <span>Scroll</span>
