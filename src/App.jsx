@@ -17,9 +17,10 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] selection:bg-white selection:text-black antialiased font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-white selection:text-black antialiased font-sans">
       <Navbar />
-      <main className="relative">
+      {/* We keep the main container simple so the fixed popups can escape it */}
+      <main>
         <Hero />
         <QuickBits />
         <TechMarquee />
