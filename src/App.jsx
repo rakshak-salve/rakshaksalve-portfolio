@@ -4,20 +4,20 @@ import Hero from './components/Hero';
 import QuickBits from './components/QuickBits';
 import TechMarquee from './components/TechMarquee';
 import Philosophy from './components/Philosophy';
-import VerifiedAssets from './components/VerifiedAssets'; // Restore documents here
+import VerifiedAssets from './components/VerifiedAssets'; 
 import Projects from './components/Projects';
 import CaseStudy from './components/CaseStudy';
 import LogicSandbox from './components/LogicSandbox'; 
 import CodingHeatmaps from './components/CodingHeatmaps'; 
 import GithubStats from './components/GithubStats';
-import Experience from './components/Experience'; // This now has all 5+ items
+import Experience from './components/Experience';
 import Tools from './components/Tools';
 import About from './components/About';
 import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] selection:bg-white selection:text-black antialiased">
+    <div className="min-h-screen bg-[#0a0a0a] selection:bg-white selection:text-black antialiased font-sans">
       <Navbar />
       <main className="relative">
         <Hero />
