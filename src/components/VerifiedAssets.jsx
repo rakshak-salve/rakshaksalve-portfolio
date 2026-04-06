@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const VerifiedAssets = () => {
-  const [viewType, setViewType] = useState(null); // 'offers' or 'certs'
+  const [viewType, setViewType] = useState(null);
 
   // Block background scroll for total focus
   useEffect(() => {
@@ -38,7 +38,8 @@ const VerifiedAssets = () => {
   const activeItems = viewType === 'offers' ? offers : certs;
 
   return (
-    <section id="verified-arsenal" className="w-full py-20 px-6 md:px-12 bg-[#0a0a0a] border-t border-white/10">
+    <section id="verified-arsenal" className="w-full py-20 px-6 md:px-12 bg-transparent border-t border-white/10">
+      
       {/* TWO PRIMARY INTERFACE CARDS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10 max-w-7xl mx-auto">
         <button 
@@ -66,44 +67,54 @@ const VerifiedAssets = () => {
         </button>
       </div>
 
-      {/* FULLSCREEN POPUP ENGINE (Z-INDEX 99999) */}
+      {/* FULLSCREEN POPUP ENGINE */}
       {viewType && (
-        <div className="fixed inset-0 z-[99999] bg-black flex flex-col">
+        <div className="fixed inset-0 z-[99999] bg-[#050505] flex flex-col">
           
-          {/* SECURE HEADER BAR (This keeps Exit away from your actual Navbar) */}
-          <div className="w-full h-20 md:h-28 bg-[#0d1117] border-b border-white/10 flex items-center justify-between px-6 md:px-12 flex-shrink-0">
+          {/* SECURE HEADER BAR */}
+          <div className="w-full h-20 md:h-28 bg-[#0a0a0a] border-b border-white/10 flex items-center justify-between px-6 md:px-12 flex-shrink-0 relative z-20 shadow-2xl">
             <div>
               <h4 className="text-xl md:text-4xl font-black uppercase tracking-tighter italic">
                 {viewType === 'offers' ? 'CAREER_RECORDS' : 'SKILL_ARCHIVE'}
               </h4>
-              <p className="text-[#ffa116] font-mono text-[8px] md:text-[10px] tracking-widest uppercase">
+              <p className="text-[#ffa116] font-mono text-[8px] md:text-[10px] tracking-widest uppercase mt-1">
                 Rakshak Salve // Verified Documentation
               </p>
             </div>
             
-            {/* THE UNSTOPPABLE EXIT BUTTON */}
             <button 
               onClick={() => setViewType(null)}
-              className="bg-white text-black px-8 py-3 md:px-12 md:py-5 font-black uppercase text-[10px] md:text-xs tracking-widest hover:bg-[#ffa116] transition-all active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+              className="bg-white text-black px-6 py-3 md:px-12 md:py-5 font-black uppercase text-[10px] md:text-xs tracking-widest hover:bg-[#ffa116] transition-all active:scale-95"
             >
-              EXIT_ARCHIVE [X]
+              EXIT [X]
             </button>
           </div>
 
-          {/* THE DOCUMENT GRID */}
-          <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12">
+          {/* THE DOCUMENT GRID - Added min-h-0 to fix mobile flex scrolling bug */}
+          <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12 min-h-0 relative z-10">
             <div className="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-12">
               {activeItems.map((item) => (
-                <div key={item.id} className="flex flex-col bg-[#0d1117] border border-white/5 group overflow-hidden">
+                <div key={item.id} className="flex flex-col bg-[#0d1117] border border-white/5 group overflow-hidden relative">
                   
-                  {/* LIVE PREVIEW WINDOW */}
-                  <div className="aspect-[4/5] w-full bg-[#050505] relative flex items-center justify-center p-2 overflow-hidden">
+                  {/* PREVIEW WINDOW */}
+                  <div className="aspect-[4/5] w-full bg-black relative flex items-center justify-center p-2 overflow-hidden">
+                    
                     {item.type === 'PDF' ? (
-                      <embed 
-                        src={`${item.path}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                        type="application/pdf"
-                        className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none"
-                      />
+                      <>
+                        {/* Desktop PDF Embed */}
+                        <embed 
+                          src={`${item.path}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                          type="application/pdf"
+                          className="hidden md:block w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none"
+                        />
+                        {/* Mobile Brutalist PDF Placeholder */}
+                        <div className="md:hidden w-full h-full border border-gray-800 bg-[#0a0a0a] flex flex-col items-center justify-center p-6">
+                          <div className="w-16 h-20 border-2 border-gray-700 mb-4 flex items-center justify-center relative">
+                            <span className="absolute top-2 left-2 text-[8px] font-black uppercase">PDF</span>
+                            <span className="text-2xl opacity-20">📄</span>
+                          </div>
+                        </div>
+                      </>
                     ) : (
                       <img 
                         src={item.path} 
@@ -112,29 +123,31 @@ const VerifiedAssets = () => {
                       />
                     )}
                     
-                    {/* INTERACTION OVERLAY */}
+                    {/* INTERACTION OVERLAY - Force visible on mobile, hover on desktop */}
                     <a 
                       href={item.path} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-4"
+                      className="absolute inset-0 bg-black/60 md:bg-black/80 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-4 z-10"
                     >
-                      <span className="bg-white text-black px-6 py-3 font-black text-[10px] uppercase tracking-widest">
-                        View Full Original [↗]
+                      <span className="bg-white text-black px-6 py-4 font-black text-[10px] uppercase tracking-widest active:scale-95 transition-transform hover:bg-[#ffa116]">
+                        {item.type === 'PDF' ? 'Open Native PDF [↗]' : 'View Image [↗]'}
                       </span>
                     </a>
+
                   </div>
 
                   {/* INFO PANEL */}
-                  <div className="p-6 border-t border-white/5 flex justify-between items-center bg-black/40">
-                    <div className="overflow-hidden">
-                      <p className="text-[10px] font-bold tracking-tighter truncate max-w-[180px] uppercase">{item.title}</p>
-                      <p className="text-[8px] font-mono text-white/30 uppercase mt-1 tracking-widest">STATUS: VERIFIED_PRO</p>
+                  <div className="p-4 md:p-6 border-t border-white/5 flex justify-between items-center bg-[#050505]">
+                    <div className="overflow-hidden mr-4">
+                      <p className="text-[10px] md:text-xs font-bold tracking-tighter truncate uppercase">{item.title}</p>
+                      <p className="text-[8px] font-mono text-white/30 uppercase mt-1 tracking-widest">STATUS: VERIFIED</p>
                     </div>
-                    <span className="text-white/10 font-black text-3xl italic tracking-tighter select-none">
+                    <span className="text-white/10 font-black text-2xl md:text-3xl italic tracking-tighter select-none">
                       {item.id < 10 ? `0${item.id}` : item.id}
                     </span>
                   </div>
+
                 </div>
               ))}
             </div>
