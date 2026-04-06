@@ -20,31 +20,26 @@
   .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
   .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 0px; }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #ffa116; }
-  
-  .stroke-text {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.1);
-  }
 }
 
 /* --- Starfield Animation Logic --- */
 .star-layer {
   background: transparent;
-  border-radius: 50%;
 }
 
-/* Base sizes and animation speeds */
-.star-small  { width: 1px; height: 1px; animation: animStar 150s linear infinite; }
-.star-medium { width: 2px; height: 2px; animation: animStar 100s linear infinite; }
-.star-large  { width: 3px; height: 3px; animation: animStar 50s linear infinite; }
+/* Base animation speeds */
+.star-small  { animation: animStar 150s linear infinite; }
+.star-medium { animation: animStar 100s linear infinite; }
+.star-large  { animation: animStar 50s linear infinite; }
 
-/* Duplicates the stars 100vh below to create an infinite seamless loop */
-.star-small::after  { content: " "; position: absolute; top: 100vh; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
-.star-medium::after { content: " "; position: absolute; top: 100vh; width: 2px; height: 2px; background: transparent; box-shadow: inherit; }
-.star-large::after  { content: " "; position: absolute; top: 100vh; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
+/* Duplicates the stars 3000px below to create an infinite seamless loop */
+.star-small::after  { content: " "; position: absolute; top: 3000px; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
+.star-medium::after { content: " "; position: absolute; top: 3000px; width: 2px; height: 2px; background: transparent; box-shadow: inherit; }
+.star-large::after  { content: " "; position: absolute; top: 3000px; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
 
 @keyframes animStar {
   from { transform: translateY(0px); }
-  to { transform: translateY(-100vh); }
+  to { transform: translateY(-3000px); }
 }
 
 /* --- Tech Marquee --- */

@@ -1,16 +1,22 @@
 import React, { useMemo } from 'react';
 
+// Moved OUTSIDE the component so it doesn't recreate on renders.
+// Using a fixed 3000px grid prevents mobile browsers from recalculating vh/vw when scrolling.
+const generateStars = (count) => {
+  let stars = [];
+  for (let i = 0; i < count; i++) {
+    const x = Math.floor(Math.random() * 3000);
+    const y = Math.floor(Math.random() * 3000);
+    stars.push(`${x}px ${y}px #ffffff`);
+  }
+  return stars.join(', ');
+};
+
 const InteractiveBackground = () => {
-  // Generate random star coordinates once when the component loads
+  // Generate coordinates exactly once on load
   const starsSmall = useMemo(() => generateStars(700), []);
   const starsMedium = useMemo(() => generateStars(200), []);
   const starsLarge = useMemo(() => generateStars(50), []);
-
-  function generateStars(count) {
-    return [...Array(count)]
-      .map(() => `${Math.floor(Math.random() * 100)}vw ${Math.floor(Math.random() * 100)}vh #ffffff`)
-      .join(', ');
-  }
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#050505]">
@@ -19,9 +25,9 @@ const InteractiveBackground = () => {
       
       {/* Star Layers */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="star-layer star-small" style={{ boxShadow: starsSmall }}></div>
-        <div className="star-layer star-medium" style={{ boxShadow: starsMedium }}></div>
-        <div className="star-layer star-large" style={{ boxShadow: starsLarge }}></div>
+        <div className="star-layer star-small w-[1px] h-[1px] rounded-full bg-transparent" style={{ boxShadow: starsSmall }}></div>
+        <div className="star-layer star-medium w-[2px] h-[2px] rounded-full bg-transparent" style={{ boxShadow: starsMedium }}></div>
+        <div className="star-layer star-large w-[3px] h-[3px] rounded-full bg-transparent" style={{ boxShadow: starsLarge }}></div>
       </div>
     </div>
   );
