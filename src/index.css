@@ -4,23 +4,57 @@
 
 @layer base {
   body {
-    @apply bg-[#0a0a0a] text-white;
+    @apply text-white overflow-x-hidden bg-[#050505];
+  }
+
+  /* Makes dark sections transparent so the starry sky shows through */
+  section:not(#contact):not(#casestudy), 
+  .animate-marquee, 
+  #tools {
+    background-color: transparent !important;
   }
 }
 
 @layer utilities {
-  /* Ultra-minimal high-end scrollbar for popups */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 5px;
+  .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 0px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #ffa116; }
+  
+  .stroke-text {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.1);
   }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: #0a0a0a;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #222;
-    border-radius: 0px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #ffa116;
-  }
+}
+
+/* --- Starfield Animation Logic --- */
+.star-layer {
+  background: transparent;
+  border-radius: 50%;
+}
+
+/* Base sizes and animation speeds */
+.star-small  { width: 1px; height: 1px; animation: animStar 150s linear infinite; }
+.star-medium { width: 2px; height: 2px; animation: animStar 100s linear infinite; }
+.star-large  { width: 3px; height: 3px; animation: animStar 50s linear infinite; }
+
+/* Duplicates the stars 100vh below to create an infinite seamless loop */
+.star-small::after  { content: " "; position: absolute; top: 100vh; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
+.star-medium::after { content: " "; position: absolute; top: 100vh; width: 2px; height: 2px; background: transparent; box-shadow: inherit; }
+.star-large::after  { content: " "; position: absolute; top: 100vh; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
+
+@keyframes animStar {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-100vh); }
+}
+
+/* --- Tech Marquee --- */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
 }

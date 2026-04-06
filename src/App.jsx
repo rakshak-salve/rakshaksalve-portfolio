@@ -1,39 +1,38 @@
 import React from 'react';
+import InteractiveBackground from './components/InteractiveBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import QuickBits from './components/QuickBits';
 import TechMarquee from './components/TechMarquee';
-import Philosophy from './components/Philosophy';
-import VerifiedAssets from './components/VerifiedAssets'; 
+import About from './components/About';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
 import CaseStudy from './components/CaseStudy';
+import VerifiedAssets from './components/VerifiedAssets'; 
 import LogicSandbox from './components/LogicSandbox'; 
 import CodingHeatmaps from './components/CodingHeatmaps'; 
 import GithubStats from './components/GithubStats';
-import Experience from './components/Experience';
 import Tools from './components/Tools';
-import About from './components/About';
 import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-white selection:text-black antialiased font-sans">
+    <div className="min-h-screen text-white selection:bg-white selection:text-black antialiased font-sans">
+      <InteractiveBackground />
       <Navbar />
-      {/* We keep the main container simple so the fixed popups can escape it */}
-      <main>
+      <main className="relative z-10">
         <Hero />
         <QuickBits />
         <TechMarquee />
-        <Philosophy />
-        <VerifiedAssets /> 
+        <About />
+        <Experience />
         <Projects />
         <CaseStudy />
+        <VerifiedAssets /> 
         <LogicSandbox /> 
         <CodingHeatmaps />
         <GithubStats />
-        <Experience />
         <Tools />
-        <About />
         <Contact />
       </main>
     </div>
